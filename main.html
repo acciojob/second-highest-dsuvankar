@@ -35,41 +35,7 @@
 		}
 		Main();
 
-		describe('Second Highest Element', () => {
-    it('should return "-Infinity" for array with less than 2 elements', () => {
-        cy.visit(baseUrl, {
-            onBeforeLoad(win) {
-                cy.stub(win, 'prompt').onFirstCall().returns('1').onSecondCall().returns('1');
-            }
-        });
-        cy.on('window:alert', result => {
-            expect(result).to.equal("-Infinity");
-        });
-    });
-
-    it('should return "-Infinity" for array with all elements the same', () => {
-        cy.visit(baseUrl, {
-            onBeforeLoad(win) {
-                cy.stub(win, 'prompt').onFirstCall().returns('5').onSecondCall().returns('1').onThirdCall().returns('1').onFourthCall().returns('1').onFifthCall().returns('1').onSixthCall().returns('1');
-            }
-        });
-        cy.on('window:alert', result => {
-            expect(result).to.equal("-Infinity");
-        });
-    });
-
-    it('should return the second highest element for a valid array', () => {
-        cy.visit(baseUrl, {
-            onBeforeLoad(win) {
-                cy.stub(win, 'prompt').onFirstCall().returns('5').onSecondCall().returns('5').onThirdCall().returns('1').onFourthCall().returns('2').onFifthCall().returns('3').onSixthCall().returns('4');
-            }
-        });
-        cy.on('window:alert', result => {
-            expect(result).to.equal("4");
-        });
-    });
-});
-
+		
 	</script>
 
 	<script type="text/javascript" src="./script.js"></script>
