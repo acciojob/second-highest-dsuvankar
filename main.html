@@ -1,47 +1,41 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
 	<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>	
 	<script>
 		function secondHighest(arr) {
-			if(arr.length<2){
-			return Number.MIN_SAFE_INTEGER;
+			if (arr.length < 2) {
+				return "-Infinity";
 			}
-			let max =Number.MIN_SAFE_INTEGER;;
-			let secondMax = Number.MIN_SAFE_INTEGER;
-			for (let i = 0; i < arr.length; i++) {
-				if(arr[i]>max){
-					 secondMax = max;
-					max = arr[i];
-				}
-
-				if(arr[i]<max && arr[i]>secondMax){
-					 secondMax = arr[i];;
-				}
-			}
-			return secondMax === Number.MIN_SAFE_INTEGER ? Number.MIN_SAFE_INTEGER : secondMax;  
 			
+			let max = Number.MIN_SAFE_INTEGER;
+			let secondMax = Number.MIN_SAFE_INTEGER;
+			
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i] > max) {
+					secondMax = max;
+					max = arr[i];
+				} else if (arr[i] < max && arr[i] > secondMax) {
+					secondMax = arr[i];
+				}
+			}
+			
+			return secondMax === Number.MIN_SAFE_INTEGER ? "-Infinity" : secondMax;
 		}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-			arr[i] = prompt("Enter element " + (i+1));
+				arr[i] = Number(prompt("Enter element " + (i + 1))); // Convert to number
 			}
 			alert(secondHighest(arr));
 		}
 		Main();
 	</script>
 
-    <script type="text/javascript" src="./script.js">
-</script>
-
+	<script type="text/javascript" src="./script.js"></script>
 </body>
-
 </html>
