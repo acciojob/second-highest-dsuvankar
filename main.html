@@ -9,7 +9,22 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
+			if(arr.length<2){
+			return "-Infinity";
+			}
+			let max =Number.MIN_SAFE_INTEGER;;
+			let secondMax = Number.MIN_SAFE_INTEGER;
+			for (let i = 0; i < arr.length; i++) {
+				if(arr[i]>max){
+					 secondMax = max;
+					max = arr[i];
+				}
+
+				if(arr[i]<max && arr[i]>secondMax){
+					secondMax = max;
+				}
+			}
+			return secondMax === Number.MIN_SAFE_INTEGER ? "-Infinity" : secondMax;  
 			
 		}
 
@@ -17,7 +32,7 @@
 			var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+			arr[i] = prompt("Enter element " + (i+1));
 			}
 			alert(secondHighest(arr));
 		}
