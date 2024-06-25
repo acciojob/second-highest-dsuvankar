@@ -17,10 +17,10 @@
         if (arr[i] > max) {
             secondMax = max;
             max = arr[i];
-        } else if (arr[i] > secondMax) {
+        } else if (arr[i] < max && arr[i] > secondMax) {
             secondMax = arr[i];
         }
-    }
+    } 
     
     return secondMax === Number.MIN_SAFE_INTEGER ? Number.NEGATIVE_INFINITY : secondMax;
 }
