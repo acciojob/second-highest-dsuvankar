@@ -10,7 +10,7 @@
 	<script>
 		function secondHighest(arr) {
 			if(arr.length<2){
-			return "-Infinity";
+			return Number.MIN_SAFE_INTEGER;
 			}
 			let max =Number.MIN_SAFE_INTEGER;;
 			let secondMax = Number.MIN_SAFE_INTEGER;
@@ -24,7 +24,7 @@
 					 secondMax = arr[i];;
 				}
 			}
-			return secondMax === Number.MIN_SAFE_INTEGER ? "-Infinity" : secondMax;  
+			return secondMax === Number.MIN_SAFE_INTEGER ? Number.MIN_SAFE_INTEGER : secondMax;  
 			
 		}
 
